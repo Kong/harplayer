@@ -6,9 +6,11 @@
   "dependencies": {
     "request": "^2.54.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "keywords": [
     "har",
