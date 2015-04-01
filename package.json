@@ -1,6 +1,6 @@
 {
   "name": "harplayer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Replay HAR logs",
   "main": "lib/harplayer.js",
   "dependencies": {
