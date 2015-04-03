@@ -5,7 +5,9 @@ var filesize = require('file-size')
 
 var har = require('./data/har.json')
 var entries = har.log.entries
-var bar = new ProgressBar(' Replaying ' + entries.length + ' HAR entries: [:bar] :percent :etas', {
+var el = entries.length
+var intro = ' Replaying ' + el + ' HAR entries: [:bar] :percent :etas'
+var bar = new ProgressBar(intro, {
   complete: '=',
   incomplete: ' ',
   width: 40,
@@ -27,7 +29,7 @@ function createRows(har) {
     if (err) throw err
     var status = res.statusCode
     var size = filesize(Buffer.byteLength(body, 'utf8')).human()
-    var time = (new Date().getTime() - start) + " ms"
+    var time = (new Date().getTime() - start) + ' ms'
     var tr = [method, status, url, size, time]
     table.push(tr)
     har.log.entries.shift()
