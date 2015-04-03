@@ -24,15 +24,20 @@ function replay(harr, callback) {
   })
 }
 
-function oneByOne(items, fun, callback) {
-  fun(items[0].request, callback)
-  items.shift()
-  if (items.length === 0) return
-  oneByOne(items, fun, callback)  
+function oneByOne(arr, fun, callback) {
+  var entries = cloneArray(arr)
+  fun(entries[0].request, callback)
+  entries.shift()
+  if (entries.length === 0) return
+  oneByOne(entries, fun, callback)  
 }
 
-function allAtOnce(items, fun, callback) {
-  items.map(function(item) { 
+function allAtOnce(arr, fun, callback) {
+  arr.map(function(item) { 
     replay(item.request, callback)
   })
+}
+
+function cloneArray(arr) {
+  return arr.map(function(item){return item})
 }
