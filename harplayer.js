@@ -2,17 +2,17 @@ var request = require('request')
 
 module.exports = {
   replayOne: function(har, index, callback) {
-    send(har.log.entries[index].request, callback)
+    replay(har.log.entries[index].request, callback)
   }, 
   replayAll: function(har, callback) {
-    oneByOne(har.log.entries, send, callback)
+    oneByOne(har.log.entries, replay, callback)
   }, 
   replayAllInParallel: function(har, callback) {
-    allAtOnce(har.log.entries, send, callback)
+    allAtOnce(har.log.entries, replay, callback)
   }
 }
 
-function send(harr, callback) {
+function replay(harr, callback) {
   var options = {
     method: harr.method,
     uri: harr.url,
@@ -32,7 +32,7 @@ function oneByOne(items, fun, callback) {
 }
 
 function allAtOnce(items, fun, callback) {
-	for (var i = 0; i < items.length; i++) {
-		send(items[i].request, callback)
-	}
+  items.map(function(item) { 
+    replay(item.request, callback)
+  })
 }
