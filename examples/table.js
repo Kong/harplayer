@@ -3,19 +3,19 @@ var Table = require('cli-table')
 var ProgressBar = require('progress')
 var filesize = require('file-size')
 
-var table = new Table({
-  head: ['METHOD', 'STATUS', "URL", "SIZE", "TIME"],
-  colWidths: [8, 8, 35, 12, 10],
-  style: { head: ["cyan"]}
-})
-
-var har = require('./har.json')
+var har = require('./data/har.json')
 var entries = har.log.entries
 var bar = new ProgressBar(' Replaying ' + entries.length + ' HAR entries: [:bar] :percent :etas', {
   complete: '=',
   incomplete: ' ',
   width: 40,
   total: entries.length
+})
+
+var table = new Table({
+  head: ['METHOD', 'STATUS', "URL", "SIZE", "TIME"],
+  colWidths: [8, 8, 35, 12, 10],
+  style: { head: ["cyan"]}
 })
 
 function createRows(har) {

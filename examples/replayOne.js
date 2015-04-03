@@ -1,5 +1,5 @@
 var harplayer = require('../harplayer')
-var har = require('./har.json')
+var har = require('./data/har.json')
 
 harplayer.replayOne(har, 0, function(err, res, body){
   if (err) throw err
