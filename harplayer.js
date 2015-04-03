@@ -6,6 +6,9 @@ module.exports = {
   }, 
   replayAll: function(har, callback) {
     oneByOne(har.log.entries, send, callback)
+  }, 
+  replayAllInParallel: function(har, callback) {
+    allAtOnce(har.log.entries, send, callback)
   }
 }
 
@@ -26,4 +29,10 @@ function oneByOne(items, fun, callback) {
   items.shift()
   if (items.length === 0) return
   oneByOne(items, fun, callback)  
+}
+
+function allAtOnce(items, fun, callback) {
+	for (var i = 0; i < items.length; i++) {
+		send(items[i].request, callback)
+	}
 }
