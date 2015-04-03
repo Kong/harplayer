@@ -32,11 +32,18 @@ describe('replayOne', function(){
   })
 })
 
-describe('replayAllInParallel', function(){
+describe('replayAll', function(){
   describe('responseCodes', function(){
+    it('should return correct codes', function(done){
+      var index = 0, codes = [200, 301, 501]
+      harplayer.replayAll(har, function(err, res, body){
+        assert.equal(res.statusCode, codes[index++])
+        if (index === codes.length) done()
+      })
+    })
     it('should return the correct amount', function(done){
       var count = 0
-      harplayer.replayAllInParallel(har, function(err, res, body){
+      harplayer.replayAll(har, function(err, res, body){
         count++
         if (count === 3) done()
       })
@@ -44,13 +51,23 @@ describe('replayAllInParallel', function(){
   })
 })
 
-describe('replayAll', function(){
+describe('replayAllInParallel', function(){
   describe('responseCodes', function(){
-    it('should return correct order', function(done){
-      var index = 0, codes = [200, 301, 501]
-      harplayer.replayAll(har, function(err, res, body){
-        assert.equal(res.statusCode, codes[index++])
-        if (index === codes.length) done()
+    it('should return the correct codes', function(done){
+      var count = 0
+      harplayer.replayAllInParallel(har, function(err, res, body){
+        var code = res.statusCode
+        if (code === 200 || code === 301 || code === 501) {
+          count++
+          if (count === 3) done()
+        }
+      })
+    })
+    it('should return the correct amount', function(done){
+      var count = 0
+      harplayer.replayAllInParallel(har, function(err, res, body){
+        count++
+        if (count === 3) done()
       })
     })
   })
