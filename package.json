@@ -7,10 +7,11 @@
     "request": "^2.54.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.1",
+    "nock": "^1.4.0"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha tests/"
   },
   "keywords": [
     "har",
