@@ -1,6 +1,6 @@
-# harplayer [![wercker](https://img.shields.io/wercker/ci/551bc8323993a61109001091.svg)](https://app.wercker.com/#applications/551bc8323993a61109001091) [![NPM Version](https://img.shields.io/npm/v/harplayer.svg)](https://www.npmjs.com/package/harplayer)
+# harplayer [![](https://img.shields.io/wercker/ci/551bc8323993a61109001091.svg)](https://app.wercker.com/#applications/551bc8323993a61109001091) [![](https://img.shields.io/coveralls/Mashape/harplayer.svg)](https://coveralls.io/r/Mashape/harplayer) [![](https://img.shields.io/npm/v/harplayer.svg)](https://www.npmjs.com/package/harplayer)
 
-Replays HAR log entries.
+Replay [HAR](http://www.softwareishard.com/blog/har-12-spec/) log entries to debug and visualize http services.
 
 ### Install
 
@@ -17,20 +17,24 @@ var har = require('./har.json')
 
 harplayer.replayOne(har, 0, function(err, res, body){
   if (err) throw err
-  console.log(res.statusCode + " " + res.statusMessage)
-  // console.log(body)
+  console.log(res.statusCode)
 })
 
 harplayer.replayAll(har, function(err, res, body){
   if (err) throw err
-  console.log(res.statusCode + " " + res.statusMessage)
-  // console.log(body)
+  console.log(res.statusCode)
 })
 
 harplayer.replayAllInParallel(har, function(err, res, body){
   if (err) throw err
-  console.log(res.statusCode + " " + res.statusMessage)
-  // console.log(body)
+  console.log(res.statusCode)
 })
-
 ```
+
+### Contributing
+
+[Feedback](https://github.com/Mashape/harplayer/issues) and [pull requests](https://github.com/Mashape/harplayer/pulls) are most welcomed. 
+
+### MIT license
+
+Copyright (c) 2015, Mashape (https://www.mashape.com/)
