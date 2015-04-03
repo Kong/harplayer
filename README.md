@@ -1,4 +1,4 @@
-# harplayer ![wercker](https://img.shields.io/wercker/ci/551bc8323993a61109001091.svg) ![NPM Version](https://img.shields.io/npm/v/harplayer.svg)
+# harplayer [![wercker](https://img.shields.io/wercker/ci/551bc8323993a61109001091.svg)](https://app.wercker.com/#applications/551bc8323993a61109001091) [![NPM Version](https://img.shields.io/npm/v/harplayer.svg)](https://www.npmjs.com/package/harplayer)
 
 Replays HAR log entries.
 
