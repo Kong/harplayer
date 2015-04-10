@@ -2,7 +2,7 @@
   "name": "harplayer",
   "version": "0.2.0",
   "description": "Replay HAR logs",
-  "main": "lib/harplayer.js",
+  "main": "harplayer.js",
   "dependencies": {
     "request": "^2.54.0"
   },
