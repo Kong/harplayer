@@ -31,6 +31,8 @@ harplayer.replayAllInParallel(har, function(err, res, body){
 })
 ```
 
+Check out the [examples](https://github.com/Mashape/harplayer/tree/master/examples) directory for more.
+
 ### Contributing
 
 [Feedback](https://github.com/Mashape/harplayer/issues) and [pull requests](https://github.com/Mashape/harplayer/pulls) are most welcomed. 
