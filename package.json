@@ -11,7 +11,7 @@
     "nock": "^1.4.0"
   },
   "scripts": {
-    "test": "mocha tests/"
+    "test": "mocha test/"
   },
   "keywords": [
     "har",
